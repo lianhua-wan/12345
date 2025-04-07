@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>书本图4.16样式-定位知识点展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+        }
+        
+        /* 中心图标 - 书本常见的样式 */
+        .center-icon {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff url('1.jpeg') no-repeat center;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 5px solid #4e54c8;
+            z-index: 10;
+            animation: pulse 3s infinite;
+        }
+        
+        /* 知识点框 - 书本常见的卡片样式 */
+        .knowledge-card {
+            position: absolute;
+            width: 220px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .knowledge-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 三个卡片的位置 */
+        .card-html {
+            top: 20%;
+            left: 15%;
+            border-top: 5px solid #e44d26;
+        }
+        
+        .card-css {
+            top: 20%;
+            right: 15%;
+            border-top: 5px solid #264de4;
+        }
+        
+        .card-js {
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top: 5px solid #f0db4f;
+        }
+        
+        /* 标题样式 */
+        .card-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .card-html .card-title::before {
+            background: #e44d26;
+        }
+        
+        .card-css .card-title::before {
+            background: #264de4;
+        }
+        
+        .card-js .card-title::before {
+            background: #f0db4f;
+        }
+        
+        /* 列表样式 */
+        .knowledge-list {
+            list-style-type: none;
+        }
+        
+        .knowledge-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .knowledge-list li::before {
+            content: "•";
+            color: #4e54c8;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+        
+        /* 动画效果 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(78, 84, 200, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(78, 84, 200, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(78, 84, 200, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 中心图标 -->
+        <div class="center-icon"></div>
+        
+        <!-- HTML知识点卡片 -->
+        <div class="knowledge-card card-html">
+            <h3 class="card-title">HTML核心知识点</h3>
+            <ul class="knowledge-list">
+                <li>文档结构解析</li>
+                <li>语义化标签应用</li>
+                <li>表单与输入控件</li>
+                <li>多媒体嵌入技术</li>
+                <li>SEO优化基础</li>
+            </ul>
+        </div>
+        
+        <!-- CSS知识点卡片 -->
+        <div class="knowledge-card card-css">
+            <h3 class="card-title">CSS核心技术</h3>
+            <ul class="knowledge-list">
+                <li>盒模型详解</li>
+                <li>Flex布局系统</li>
+                <li>Grid布局方案</li>
+                <li>动画与过渡效果</li>
+                <li>响应式设计原则</li>
+            </ul>
+        </div>
+        
+        <!-- JavaScript知识点卡片 -->
+        <div class="knowledge-card card-js">
+            <h3 class="card-title">JavaScript重点</h3>
+            <ul class="knowledge-list">
+                <li>ES6新特性</li>
+                <li>DOM操作原理</li>
+                <li>异步编程模式</li>
+                <li>事件处理机制</li>
+                <li>AJAX与Fetch</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
